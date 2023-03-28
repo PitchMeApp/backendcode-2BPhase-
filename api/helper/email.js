@@ -8,17 +8,17 @@ exports.SendMail = async (to, subject, message, type) => {
       messageBody = await getEmailBodyResetPassworduserId(message);
     }
     let transporter = nodemailer.createTransport({
-      host: "qride.co.tz",
+      host: "info@exmple.com",
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "salepitch@qride.co.tz", // generated ethereal user
-        pass: "SalesPitch@123$", // generated ethereal password
+        user: "info@exmple.com", // generated ethereal user
+        pass: "example123", // generated ethereal password
       },
     });
 
     let info = await transporter.sendMail({
-      from: "salepitch@qride.co.tz", // sender address
+      from: "info@exmple.com", // sender address
       to: to, // list of receivers
       subject: subject, // Subject line
       html: messageBody, // html body
