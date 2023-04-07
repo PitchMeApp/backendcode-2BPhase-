@@ -253,8 +253,8 @@ exports.update = async (req, res, next) => {
   if (req.files.vid1) {
     if (
       req.files.vid1[0].mimetype == "video/mp4" ||
-      req.files.img1[0].mimetype == 'application/octet-stream' ||
-      req.files.img1[0].mimetype == 'video/mov' ||
+      req.files.vid1[0].mimetype == 'application/octet-stream' ||
+      req.files.vid1[0].mimetype == 'video/mov' ||
       req.files.vid1[0].mimetype == "video/quicktime"
     ) {
       updateObj.vid1 = req.files.vid1[0].path;
@@ -308,7 +308,7 @@ exports.get = async (req, res) => {
   let matchObj = {};
 
   if (type) {
-    matchObj.type = Number(type);
+    matchObj.status = Number(type);
   }
 //   matchObj.flag = {
 //     $in: [1, 2],
@@ -377,6 +377,8 @@ exports.get = async (req, res) => {
     });
   }
 };
+
+
 
 exports.appGet = async (req, res) => {
   let { search, type } = req.query;
